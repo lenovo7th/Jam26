@@ -22,13 +22,15 @@ public class FPSController : MonoBehaviour
     public Transform cameraTransform;
 
     [Header("Zemin Algılama")]
-    public float groundCheckDistance = 0.2f;
+    public float groundCheckDistance = 0.3f;
     public LayerMask groundLayer = ~0; // Varsayılan: tüm layerlar
+    [SerializeField] private bool debugGroundCheck = true; // Debug için
 
     private Rigidbody rb;
     private float rotationX = 0f;
     private bool isGrounded = false;
     private CapsuleCollider capsuleCollider;
+    private int playerLayer;
 
     void Start()
     {
@@ -49,6 +51,15 @@ public class FPSController : MonoBehaviour
             capsuleCollider.height = 2f;
             capsuleCollider.radius = 0.5f;
         }
+        
+        // Sıfır sürtünmeli fizik materyali ekle (duvara yapışmayı önler)
+        PhysicsMaterial frictionlessMat = new PhysicsMaterial("Frictionless");
+        frictionlessMat.dynamicFriction = 0f;
+        frictionlessMat.staticFriction = 0f;
+        frictionlessMat.frictionCombine = PhysicsMaterialCombine.Minimum;
+        frictionlessMat.bounciness = 0f;
+        frictionlessMat.bounceCombine = PhysicsMaterialCombine.Minimum;
+        capsuleCollider.material = frictionlessMat;
 
         // Kamerayı bul
         if (cameraTransform == null)
@@ -139,46 +150,37 @@ public class FPSController : MonoBehaviour
 
     void CheckGround()
     {
-        // CapsuleCollider'ın tam altından raycast at
-        float colliderHeight = capsuleCollider != null ? capsuleCollider.height : 2f;
-        float colliderCenterY = capsuleCollider != null ? capsuleCollider.center.y : 0f;
-        
-        // Collider'ın alt noktasını hesapla
-        float bottomY = colliderCenterY - (colliderHeight / 2f);
-        Vector3 rayOrigin = transform.position + new Vector3(0, bottomY + 0.05f, 0);
-        
-        float rayLength = 0.2f; // Zemine olan mesafe toleransı
-        
-        // Ana raycast - merkezden
-        RaycastHit hit;
-        isGrounded = Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, groundLayer, QueryTriggerInteraction.Ignore);
-        
-        // Debug - Console'da göster
-        // Debug.Log($"Ground Check: {isGrounded}, RayOrigin Y: {rayOrigin.y}, Hit: {(hit.collider != null ? hit.collider.name : "none")}");
-        
-        // Eğer merkez raycast başarısız olduysa, kenarlardankontrol et
-        if (!isGrounded)
+        // Collision-based ground check zaten OnCollisionStay'de yapılıyor
+        // Bu fonksiyon sadece debug için
+        if (debugGroundCheck && Time.frameCount % 30 == 0) // Her 30 frame'de bir log
         {
-            float offset = capsuleCollider != null ? capsuleCollider.radius * 0.8f : 0.3f;
-            
-            // 4 yönden kontrol
-            Vector3[] offsets = new Vector3[]
+            Debug.Log($"Ground Check: {isGrounded}");
+        }
+    }
+
+    // Collision ile zemin kontrolü - daha güvenilir
+    void OnCollisionStay(Collision collision)
+    {
+        // Altımızda bir şey var mı kontrol et
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            // Contact noktası bizim altımızda mı?
+            if (contact.point.y < transform.position.y - 0.1f)
             {
-                transform.right * offset,
-                -transform.right * offset,
-                transform.forward * offset,
-                -transform.forward * offset
-            };
-            
-            foreach (Vector3 off in offsets)
-            {
-                if (Physics.Raycast(rayOrigin + off, Vector3.down, rayLength, groundLayer, QueryTriggerInteraction.Ignore))
+                isGrounded = true;
+                if (debugGroundCheck && Time.frameCount % 60 == 0)
                 {
-                    isGrounded = true;
-                    break;
+                    Debug.Log($"Grounded on: {collision.gameObject.name}");
                 }
+                return;
             }
         }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        // Collision bittiğinde, hala zemine değiyor muyuz kontrol et
+        isGrounded = false;
     }
 
     // Debug için - zemin algılama görselleştirmesi (Scene view'da görünür)

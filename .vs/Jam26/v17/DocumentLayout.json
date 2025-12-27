@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Efe\\Documents\\GitHub\\Jam26\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56C04CEB-40CA-8D86-26F1-A19D3A576F6F}|Assembly-CSharp.csproj|c:\\users\\efe\\documents\\github\\jam26\\assets\\scripts\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56C04CEB-40CA-8D86-26F1-A19D3A576F6F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameoverui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56C04CEB-40CA-8D86-26F1-A19D3A576F6F}|Assembly-CSharp.csproj|c:\\users\\efe\\documents\\github\\jam26\\assets\\scripts\\simpledoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56C04CEB-40CA-8D86-26F1-A19D3A576F6F}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\simpledoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameOverUI.cs",
+              "DocumentMoniker": "C:\\Users\\Efe\\Documents\\GitHub\\Jam26\\Assets\\Scripts\\GameOverUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameOverUI.cs",
+              "ToolTip": "C:\\Users\\Efe\\Documents\\GitHub\\Jam26\\Assets\\Scripts\\GameOverUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameOverUI.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:02:50.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SimpleDoor.cs",
+              "DocumentMoniker": "C:\\Users\\Efe\\Documents\\GitHub\\Jam26\\Assets\\Scripts\\SimpleDoor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SimpleDoor.cs",
+              "ToolTip": "C:\\Users\\Efe\\Documents\\GitHub\\Jam26\\Assets\\Scripts\\SimpleDoor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SimpleDoor.cs",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T20:39:23.27Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

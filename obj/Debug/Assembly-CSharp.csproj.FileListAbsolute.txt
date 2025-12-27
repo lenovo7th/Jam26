@@ -1,0 +1,6 @@
+C:\Users\Efe\Documents\GitHub\Jam26\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\Efe\Documents\GitHub\Jam26\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Efe\Documents\GitHub\Jam26\obj\Debug\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\Efe\Documents\GitHub\Jam26\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Efe\Documents\GitHub\Jam26\obj\Debug\Assembly-CSharp.dll
+C:\Users\Efe\Documents\GitHub\Jam26\obj\Debug\Assembly-CSharp.pdb
