@@ -165,7 +165,7 @@ public class SimpleDoor : MonoBehaviour
         // Debug - her 60 frame'de bir göster
         if (Time.frameCount % 60 == 0)
         {
-            Debug.Log($"[SimpleDoor] Mesafe: {distance:F1}m, Gerekli: {interactionDistance}m, Yakın mı: {distance <= interactionDistance}");
+            // Debug.Log($"[SimpleDoor] Mesafe: {distance:F1}m, Gerekli: {interactionDistance}m, Yakın mı: {distance <= interactionDistance}");
         }
         
         bool wasNearby = playerNearby;
