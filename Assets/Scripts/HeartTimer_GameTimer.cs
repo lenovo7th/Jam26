@@ -2,6 +2,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 
+
+
+
 public class NewMonoBehaviourScript : MonoBehaviour
 {
 public int Nabiz;
@@ -15,6 +18,7 @@ public AudioSource NormalKalpAtisi;
 public AudioSource HizliKalpAtisi;
 public AudioSource DahaHizliKalpAtisi;
 public AudioSource AsiriHizliKalpAtisi;
+public GameObject GameOverPanel;
 
 public TextMeshProUGUI sayacYazisi;
 public TextMeshProUGUI geriSayimYazisi;
@@ -57,6 +61,13 @@ void Start()
         {
           geriSayimArtisHizi = 90;
         }
+        if (geriSayim == geriSayimBitisi)
+    {
+      GameOverPanel.SetActive(true);
+      UnityEngine.Cursor.lockState = CursorLockMode.None;
+      UnityEngine.Cursor.visible = true;
+    }
+
     }
 
     void zamanlayici ()
